@@ -1,0 +1,162 @@
+########################
+
+Request
+
+########################
+
+{
+"id": "1007161.1.15362.1.1.1438314889.2f27",
+"slot" : {
+"id": "xxxx",
+"current_selector": "bdm",
+"slot_name" : "xxx",
+"media_type": "app" //媒体类型(字符串): 1:pc 2:wap 3: app
+"https": 0 //0:http 1:https
+"width": 480,
+"height": 320
+},
+"selector" : {
+"slot_id" : "xxx", //ssp 广告位ID
+"app_id" : "xxx",  //ssp 应用名称ID
+"slot_type": 1,    //ssp 广告位类型, 1:banner, 2: 插屏, 3: 开屏, 4: 信息流, 5: native 6:组图
+"native_type": 1,  //1: 图片, 2: 图文
+"package_name": "xxx", //流量方APP包名
+"package_version": "v1.1.1", //流量方APP包版本
+"app_name": "xxx",  //流量方APP名称
+"template": 1,      //广告位支持模板 https://km.adeaz.com/pages/viewpage.action?pageId=8217797
+"ad_id": 108,       //投放平台分配的ID
+"support_deeplink" : 0, //0:不支持 1:支持
+"support_clickxy": 0, //0:不支持 1: 支持
+"ad_count": 1,  // 默认为1, 最大返回广告的数量
+"price": "20",    //广告价格, 单位分
+"price_type": 1 //1:CPC 2:CPM
+"position": 1  //广告位置, 1:顶部,2:底部,3:信息流内,4:中部,5:全屏
+"app_key": "xxx", //app_key
+},
+"device" : {
+"ip": "1.1.1.1",
+"ua": "Mozilla/5.0(Linux;U;Android2.1-update1;en-us;SPH-D700Build/ECLAIR)",
+"imei": "xxx", // android 必填
+"imei_md5": "xxx", //android 选填
+"android_id": "xxx", // android 选填
+"idfa": "xxx",  //ios 必填
+"idfa_md5": "xxx", //ios 选填
+"physical_width": 640,//必填，设备物理宽度像素
+"physical_height": 960,//必填，设备物理高度像素
+"physical_density": 2,//选填，屏幕密度，一个逻辑像素等于几个实际像素
+"mac" : "00:00:00:00:00:00",  //mac地址
+"vendor": "MI4",//必填，厂商
+"model": "4.4.1",//必填，型号
+"os": "android",//必填，系统 android,ios
+"os_version": "5.0.1",//必填，系统版本号
+"network": 1,//必填，联网方式，默认1：0 未知, 1 WIFI，2 2G，3 3G，4 4G
+"operator": 1,//必填，运营商，默认1   1 移动，2 联通，3 电信
+"type": 1,//选填，设备类型，默认1：1 手机（含 iTouch），2 平板，3 电视
+"location": { //选填，经纬度
+"lat": "21.39980504",
+"lng": "210.1646447",
+"timestamp": 123145435
+},
+"oreintation": 0  //选填，手机旋转方向，90,270: 横屏  0,180:竖屏
+},
+"app" : {
+"version" : "1.0.2",
+"package_name" : "com.adeaz.test"
+},
+"user" :{
+"id" : "uid", //用户cookie id
+"gender": 0, //0:男性 1: 女性 2: 未知
+"age": "22-30"
+},
+"region": {
+"city": "南通市",
+"province": "江苏",
+"country": "中国"
+}
+"ext": {
+"filter_curl": "xx", //过滤指定落地页
+"filter_url": "xx"   //过滤指定素材地址
+}  //扩展
+}
+
+##############################
+
+Response
+
+##############################
+
+{
+"code": 0,
+"msg": "success",
+"id":"1007161.1.15362.1.1.1438314889.2f27", //对应请求ID
+"width":640,
+"height":96,
+"ad_id": "11468",  //adid
+"slot_id": 2000240,//slotid
+"content": {
+"type":"text-icon", //类型：text 纯文本广告 image 图片广告 text-icon 图文广告 rich 富媒体广告 video视频广告
+"action":0, //动作 0 下载 1 打开网页
+"url":"http://ubmcmm.baidustatic.com/media/v1/0f000c3SjVEOS4Br0s9nls.jpg", //图片地址
+"c_url":"http://c.a.fastapi.net/j?e=1yu6M4eajmJnzLuFhbEEbAr7_-LSm-ZeOykJJy6S_Z5IGI......", //点击地址
+"imp":["http://127.0.0.1:5000/imp?e=wk7iY4mTj2FhxqXP6L8UbArH_-DQnuU&pid=1007161.1.15362.1.1.1438314889.2f27&sid=1007161......"], //展现上报
+"clk" : ["http://127.0.0.1:5000/clk?e=wk7iY4mTj2FhxqXP6L8UbArH_-DQnuU&pid=1007161.1.15362.1.1.1438314889.2f27&sid=1007161......"], //点击上报
+"title":"家有榻榻米，轻松变大10m2！", //标题
+"desc":"【尚品宅配】专注定制家具11年，因为专注，所以专业！", //描述
+"ext_urls":["http://xxxxx..xxxx.jpg","http://yyyy.jpg"],  //多个图片的从第二个图片开始放在这里
+"icon_url":"http://mobads.baidu.com/logos/227e44907f16914ed2b96619.jpg", //图标地址
+"dp_url": "hzmobile://test?params=test",  //deeplink 点击链接
+"dp_clk": ["xxx1","xxx2"], //第三方deeplink点击上报地址
+"down_start_urls": ["xxx1","xxx2"], //下载开始监控链接
+"down_urls": ["xxx1", "xxx2"], //下载完成监控链接
+"inst_start_urls": ["xxx1", "xxx2"], //安装开始监控链接
+"inst_urls": ["xxx1", "xxx2"], //安装完成监控链接
+"duration" : 15 ,  //视频广告返回的视频时长  视频广告必填
+"video_tracking": {
+"start": [
+"http://icm001.oicp.net:18800/106001?enc\u003d8e795afb32b12d8bad4c30d386d6c924ac81e62c32dd11b9359208a6b99e34dca5a20988f0138a3ae6512aaa66dbeaa4f5641e921e5d5da3689e7d6dc0dea7dd3f3c909ab99f93d012e8787c315f1b1cab9238a0bbb3bc8ea2b0f1a1bd3548236e0e20a0e22e7858f2067954c50b317df76910cfbc6ff8889a86365013020fd5687553f08d2040bc7051bf3e45e9854cbb3eb4d4c9e1163bc83b9b6301ab3871f069a94421e620ef01bcaa09237325fee19e97ada1099c9ddbf0139581b5fc93da386b0b8b510bc7c59b2bd224d273ce5649e314a5e1f4493d5cbd757b5484b83dca3209f48f4fde8355248f682153fc435e013ffc28d7186cfe46a8054a24fe2a7df82e9bf10084bec16de6ff4d12ce92c87dbe07256b1fe6b055e336d3e7cfe25ab4a8489bf370595d54ae740b28633e19d86ebb3697af80d23d7a3c11436f93eaf461f5725cbd52e88c752dce5d0dcc12593f4403ab081e1d4f63f99d90066d9edf56e92820d21abeeb67825ac8c339c2af09d7eaed7cc1d78338a1cff35c5c1240e6737175a90afde8ce4c4f60b5d63b7ee708192ec64ea112666b5e189696bb720a9e4b59c61be83e45060ea5a9e70723c49a923d7c265b83f6f147621ad01e03f581d191c512e97e2c977e637196acfe582c7afc55",
+"https://track.icm.mobi/event?eventName\u003dshow\u0026publishId\u003d8546a1e2e91d4689\u0026token\u003d213dff1e2c194c18\u0026data\u003d%7B%22dmk%22%3A%22huawei%22%2C%22tz%22%3A%22GMT%2B08%3A00%22%2C%22nt%22%3A0%2C%22bssid%22%3A%22%22%2C%22pid%22%3A%228546a1e2e91d4689%22%2C%22ua%22%3A%22Mozilla%2F5.0+%28iPhone%3B+CPU+iPhone+OS+9_1+like+Mac+OS+X%29+AppleWebKit%2F601.1.46+%28KHTML%2C+like+Gecko%29+Version%2F9.0+Mobile%2F13B143+Safari%2F601.1%22%2C%22pkg%22%3A%22com.tencent.tmgp.czk.elts.cn%22%2C%22ssid%22%3A%22%22%2C%22mac%22%3A%2218%3Ad2%3A76%3Abd%3A03%3A3a%22%2C%22sid%22%3A%22139557ed7907441fb9b37918fee73589%22%2C%22sd%22%3A0%2C%22osv%22%3A%227.0%22%2C%22sh%22%3A1920%2C%22lan%22%3A%22zh_CN%22%2C%22sw%22%3A1080%2C%22ip%22%3A%22115.197.190.211%22%2C%22al%22%3A1%2C%22ct%22%3A%22cellular%22%2C%22bdv%22%3A%221.2.3%22%2C%22imei%22%3A%22867302023111091%22%2C%22dmd%22%3A%22huaweicaz-al10%22%2C%22aid%22%3A%22fe7670d9e9ec317d%22%2C%22did%22%3A%22867302023111091%22%2C%22cid%22%3A205%7D",
+"https://track.icm.mobi/event?eventName\u003dstart\u0026publishId\u003d8546a1e2e91d4689\u0026token\u003d213dff1e2c194c18\u0026data\u003d%7B%22dmk%22%3A%22huawei%22%2C%22tz%22%3A%22GMT%2B08%3A00%22%2C%22nt%22%3A0%2C%22bssid%22%3A%22%22%2C%22pid%22%3A%228546a1e2e91d4689%22%2C%22ua%22%3A%22Mozilla%2F5.0+%28iPhone%3B+CPU+iPhone+OS+9_1+like+Mac+OS+X%29+AppleWebKit%2F601.1.46+%28KHTML%2C+like+Gecko%29+Version%2F9.0+Mobile%2F13B143+Safari%2F601.1%22%2C%22pkg%22%3A%22com.tencent.tmgp.czk.elts.cn%22%2C%22ssid%22%3A%22%22%2C%22mac%22%3A%2218%3Ad2%3A76%3Abd%3A03%3A3a%22%2C%22sid%22%3A%22139557ed7907441fb9b37918fee73589%22%2C%22sd%22%3A0%2C%22osv%22%3A%227.0%22%2C%22sh%22%3A1920%2C%22lan%22%3A%22zh_CN%22%2C%22sw%22%3A1080%2C%22ip%22%3A%22115.197.190.211%22%2C%22al%22%3A1%2C%22ct%22%3A%22cellular%22%2C%22bdv%22%3A%221.2.3%22%2C%22imei%22%3A%22867302023111091%22%2C%22dmd%22%3A%22huaweicaz-al10%22%2C%22aid%22%3A%22fe7670d9e9ec317d%22%2C%22did%22%3A%22867302023111091%22%2C%22cid%22%3A205%7D"
+],
+"end": [
+"http://icm001.oicp.net:18800/106001?enc\u003d8e795afb32b12d8bad4c30d386d6c924ac81e62c32dd11b9359208a6b99e34dca5a20988f0138a3ae6512aaa66dbeaa4f5641e921e5d5da3689e7d6dc0dea7dd3f3c909ab99f93d012e8787c315f1b1cab9238a0bbb3bc8ea2b0f1a1bd3548236e0e20a0e22e7858f2067954c50b317df76910cfbc6ff8889a86365013020fd5687553f08d2040bc7051bf3e45e9854cbb3eb4d4c9e1163bc83b9b6301ab3871f069a94421e620ef01bcaa09237325fee19e97ada1099c9ddbf0139581b5fc93da386b0b8b510bc7c59b2bd224d273ce5649e314a5e1f4493d5cbd757b5484b83dca3209f48f4fde8355248f682153fc435e013ffc28d7186cfe46a8054a24fe2a7df82e9bf10084bec16de6ff4d12ce92c87dbe07256b1fe6b055e336d3e7cfe25ab4a8489bf370595d54ae740b28633e19d86ebb3697af80d23d7a3c11436f93eaf461f5725cbd52e88c752dce5d0dcc12593f4403ab081e1d4f63f99d90066d9edf56e92820d21abeeb67825ac8c339c2af09d7eaed7cc1d78338a1cff35c5c1240e6737175a90afde8ce4c4f60b5d63b7ee708192ec64ea112666b5e189696bb720a9e4b59c61be83e45060ea5a9e70723c49a923d7c265b83f6f147621ad01e03f581d191c512e97e2c977e6371133dc417fd7ab5c6",
+"https://track.icm.mobi/event?eventName\u003dend\u0026publishId\u003d8546a1e2e91d4689\u0026token\u003d213dff1e2c194c18\u0026data\u003d%7B%22dmk%22%3A%22huawei%22%2C%22tz%22%3A%22GMT%2B08%3A00%22%2C%22nt%22%3A0%2C%22bssid%22%3A%22%22%2C%22pid%22%3A%228546a1e2e91d4689%22%2C%22ua%22%3A%22Mozilla%2F5.0+%28iPhone%3B+CPU+iPhone+OS+9_1+like+Mac+OS+X%29+AppleWebKit%2F601.1.46+%28KHTML%2C+like+Gecko%29+Version%2F9.0+Mobile%2F13B143+Safari%2F601.1%22%2C%22pkg%22%3A%22com.tencent.tmgp.czk.elts.cn%22%2C%22ssid%22%3A%22%22%2C%22mac%22%3A%2218%3Ad2%3A76%3Abd%3A03%3A3a%22%2C%22sid%22%3A%22139557ed7907441fb9b37918fee73589%22%2C%22sd%22%3A0%2C%22osv%22%3A%227.0%22%2C%22sh%22%3A1920%2C%22lan%22%3A%22zh_CN%22%2C%22sw%22%3A1080%2C%22ip%22%3A%22115.197.190.211%22%2C%22al%22%3A1%2C%22ct%22%3A%22cellular%22%2C%22bdv%22%3A%221.2.3%22%2C%22imei%22%3A%22867302023111091%22%2C%22dmd%22%3A%22huaweicaz-al10%22%2C%22aid%22%3A%22fe7670d9e9ec317d%22%2C%22did%22%3A%22867302023111091%22%2C%22cid%22%3A205%7D"
+],
+"close": [
+"http://icm001.oicp.net:18800/106001?enc\u003d8e795afb32b12d8bad4c30d386d6c924ac81e62c32dd11b9359208a6b99e34dca5a20988f0138a3ae6512aaa66dbeaa4f5641e921e5d5da3689e7d6dc0dea7dd3f3c909ab99f93d012e8787c315f1b1cab9238a0bbb3bc8ea2b0f1a1bd3548236e0e20a0e22e7858f2067954c50b317df76910cfbc6ff8889a86365013020fd5687553f08d2040bc7051bf3e45e9854cbb3eb4d4c9e1163bc83b9b6301ab3871f069a94421e620ef01bcaa09237325fee19e97ada1099c9ddbf0139581b5fc93da386b0b8b510bc7c59b2bd224d273ce5649e314a5e1f4493d5cbd757b5484b83dca3209f48f4fde8355248f682153fc435e013ffc28d7186cfe46a8054a24fe2a7df82e9bf10084bec16de6ff4d12ce92c87dbe07256b1fe6b055e336d3e7cfe25ab4a8489bf370595d54ae740b28633e19d86ebb3697af80d23d7a3c11436f93eaf461f5725cbd52e88c752dce5d0dcc12593f4403ab081e1d4f63f99d90066d9edf56e92820d21abeeb67825ac8c339c2af09d7eaed7cc1d78338a1cff35c5c1240e6737175a90afde8ce4c4f60b5d63b7ee708192ec64ea112666b5e189696bb720a9e4b59c61be83e45060ea5a9e70723c49a923d7c265b83f6f147621ad01e03f581d191c512e97e2c977e6371bf8ac3b94f461623",
+"https://track.icm.mobi/event?eventName\u003dclose\u0026publishId\u003d8546a1e2e91d4689\u0026token\u003d213dff1e2c194c18\u0026data\u003d%7B%22dmk%22%3A%22huawei%22%2C%22tz%22%3A%22GMT%2B08%3A00%22%2C%22nt%22%3A0%2C%22bssid%22%3A%22%22%2C%22pid%22%3A%228546a1e2e91d4689%22%2C%22ua%22%3A%22Mozilla%2F5.0+%28iPhone%3B+CPU+iPhone+OS+9_1+like+Mac+OS+X%29+AppleWebKit%2F601.1.46+%28KHTML%2C+like+Gecko%29+Version%2F9.0+Mobile%2F13B143+Safari%2F601.1%22%2C%22pkg%22%3A%22com.tencent.tmgp.czk.elts.cn%22%2C%22ssid%22%3A%22%22%2C%22mac%22%3A%2218%3Ad2%3A76%3Abd%3A03%3A3a%22%2C%22sid%22%3A%22139557ed7907441fb9b37918fee73589%22%2C%22sd%22%3A0%2C%22osv%22%3A%227.0%22%2C%22sh%22%3A1920%2C%22lan%22%3A%22zh_CN%22%2C%22sw%22%3A1080%2C%22ip%22%3A%22115.197.190.211%22%2C%22al%22%3A1%2C%22ct%22%3A%22cellular%22%2C%22bdv%22%3A%221.2.3%22%2C%22imei%22%3A%22867302023111091%22%2C%22dmd%22%3A%22huaweicaz-al10%22%2C%22aid%22%3A%22fe7670d9e9ec317d%22%2C%22did%22%3A%22867302023111091%22%2C%22cid%22%3A205%7D"
+]
+},
+"app" : {
+"package_name" : "com.adeaz.test", //下载类应用包名,
+"icon_url" : "http://ubmcmm.baidustatic.com/media/v1/0f000c3SjVEOS4Br0s9nls.jpg", //应用图标,
+"size": 30000, //应用包的大小
+"name" : "京东" //应用名称
+}
+},
+"union": "adx",//广告来源
+"ext" : {} //其他扩展字段
+}
+
+
+#####################
+
+广告位类型
+
+#####################
+
+rich
+{
+"content" : {
+"html": "xxx"
+}
+}
+
+######################
+
+错误码
+
+######################
+0: 成功
+204: 无广告响应
+205: API错误返回
+206: 请求超时
