@@ -1,11 +1,10 @@
 package main
 
 import (
-	//"encoding/json"
 	"flag"
 	"fmt"
-	"http-transfer/transfer"
-	"http-transfer/config"
+	"github.com/CodeDing/http-transfer/config"
+	"github.com/CodeDing/http-transfer/transfer"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -30,7 +29,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 const (
-	VERSION = "1.1.2"
+	VERSION = "v1.1.3"
 )
 
 func versionHandler(w http.ResponseWriter, r *http.Request) {
@@ -39,15 +38,15 @@ func versionHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 var (
-	addr string
-	read_timeout time.Duration
+	addr          string
+	read_timeout  time.Duration
 	write_timeout time.Duration
 )
 
 func init() {
-	addr = fmt.Sprintf(":%s",config.String("service", "port"))
-	read_timeout = time.Duration(config.IntDefault("service", "read_timeout", 300))*time.Millisecond
-	write_timeout = time.Duration(config.IntDefault("service", "write_timeout", 300))*time.Millisecond
+	addr = fmt.Sprintf(":%s", config.String("service", "port"))
+	read_timeout = time.Duration(config.IntDefault("service", "read_timeout", 300)) * time.Millisecond
+	write_timeout = time.Duration(config.IntDefault("service", "write_timeout", 300)) * time.Millisecond
 	//flag.Lookup("logtostderr").Value.Set("true")
 	flag.Lookup("logtostderr").Value.Set("false")
 	flag.Lookup("v").Value.Set("5")

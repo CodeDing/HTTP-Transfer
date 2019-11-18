@@ -3,7 +3,7 @@ package transfer
 import (
 	"encoding/json"
 	"fmt"
-	"http-transfer/proto/me"
+	"github.com/CodeDing/http-transfer/proto/me"
 	"net/http"
 	"strings"
 
